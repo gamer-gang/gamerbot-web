@@ -1,0 +1,31 @@
+.command-sidebar {
+  top: 80px;
+
+  a:hover,
+  a.active {
+    @apply font-semibold;
+    @apply bg-gray-300;
+  }
+}
+
+.command-list a {
+  @apply text-blue-400;
+  &:hover {
+    @apply text-blue-500;
+  }
+}
+
+table {
+  td,
+  th {
+    @apply border;
+    @apply border-gray-400;
+
+    @apply px-4;
+    @apply py-2;
+  }
+
+  tbody > tr:nth-child(even) {
+    @apply bg-gray-100;
+  }
+}

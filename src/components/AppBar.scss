@@ -1,0 +1,14 @@
+nav.navbar a {
+  font-size: theme('fontSize.sm');
+  color: theme('colors.gray.300');
+  font-family: theme('fontFamily.body');
+
+  &:hover {
+    color: theme('colors.white');
+  }
+
+  &.active {
+    font-weight: theme('fontWeight.semibold');
+    color: theme('colors.white');
+  }
+}

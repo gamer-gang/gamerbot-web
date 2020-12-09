@@ -1,0 +1,74 @@
+@use 'firacode' as firacode;
+@use "~inter-ui/default" as inter-ui with (
+  $inter-font-path: "~inter-ui/Inter (web)"
+);
+
+@use 'tailwindcss/base';
+@use 'tailwindcss/components';
+@use 'tailwindcss/utilities';
+
+@include firacode.weight-400;
+@include firacode.weight-600;
+@include firacode.weight-700;
+@include inter-ui.weight-400;
+@include inter-ui.weight-500;
+@include inter-ui.weight-600;
+
+button:focus {
+  outline: 0;
+}
+
+main {
+  height: calc(100vh - theme('margin.4') - theme('margin.20'));
+}
+
+// transitions
+.fade-enter {
+  opacity: 0.01;
+
+  &#{&}-active {
+    opacity: 1;
+    transition: opacity 75ms linear;
+  }
+}
+.fade-exit {
+  opacity: 1;
+
+  &#{&}-active {
+    opacity: 0.01;
+    transition: opacity 75ms linear;
+  }
+}
+
+code,
+pre {
+  @apply font-code;
+}
+
+.markdown {
+  code::before,
+  code::after {
+    content: '';
+  }
+  img {
+    display: inline-block;
+  }
+  a {
+    @apply text-blue-400;
+    &:hover {
+      @apply text-blue-500;
+    }
+  }
+}
+
+footer a {
+  @apply text-blue-400;
+  &:hover {
+    @apply text-blue-500;
+  }
+}
+
+// header image outside of bundle
+.rounded-lg {
+  border-radius: 0.5em;
+}

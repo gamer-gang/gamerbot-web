@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="description" content="the best discord bot to ever exist" />
+
+    <meta property="og:title" content="gamerbot" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://gamerbot-dev.web.app" />
+    <meta
+      property="og:image"
+      content="https://raw.githubusercontent.com/gamer-gang/gamerbot/master/assets/hexagon.png"
+    />
+    <meta property="og:image:alt" content="gamerbot logo" />
+    <meta property="og:description" content="the best discord bot to ever exist" />
+
+    <link
+      rel="icon"
+      href="https://raw.githubusercontent.com/gamer-gang/gamerbot/master/assets/hexagon.png"
+    />
+    <link
+      rel="shortcut icon"
+      href="https://raw.githubusercontent.com/gamer-gang/gamerbot/master/assets/hexagon.png"
+    />
+
+    <%= htmlWebpackPlugin.options.preHead %>
+    <!-- comment so ejs tags arent folded -->
+    <%= htmlWebpackPlugin.tags.headTags %>
+    <!-- -->
+    <%= htmlWebpackPlugin.options.postHead %>
+  </head>
+  <body style="margin: 0; padding: 0">
+    <div id="app">
+      <style>
+        @keyframes spinner-animation {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(1turn);
+          }
+        }
+      </style>
+      <div
+        style="
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          overflow: hidden;
+          height: 100vh;
+        "
+      >
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            vertical-align: middle;
+          "
+        >
+          <div style="animation: spinner-animation 0.5s linear infinite">
+            <svg
+              width="50"
+              height="50"
+              stroke-width="8.00"
+              viewBox="1.00 1.00 98.00 98.00"
+              style="display: block"
+            >
+              <path
+                style="fill-opacity: 0; stroke: #5c708033"
+                d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90"
+              ></path>
+              <path
+                style="
+                  fill-opacity: 0;
+                  stroke: #5c7080cc;
+                  stroke-linecap: round;
+                  transform-origin: center;
+                  transition: stroke-dashoffset 0.2s cubic-bezier(0.4, 1, 0.75, 0.9);
+                "
+                d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90"
+                pathLength="280"
+                stroke-dasharray="280 280"
+                stroke-dashoffset="210"
+              ></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%= htmlWebpackPlugin.options.preBody %>
+    <!-- -->
+    <%= htmlWebpackPlugin.tags.bodyTags %>
+    <!-- -->
+    <%= htmlWebpackPlugin.options.postBody %>
+  </body>
+</html>

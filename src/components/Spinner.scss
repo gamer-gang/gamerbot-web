@@ -1,0 +1,26 @@
+.spinner {
+  .spinner-animation {
+    animation: spinner-animation 0.5s linear infinite;
+  }
+  path {
+    fill-opacity: 0;
+  }
+  .spinner-track {
+    stroke: #5c708033;
+  }
+  .spinner-head {
+    stroke: #5c7080cc;
+    stroke-linecap: round;
+    transform-origin: center;
+    transition: stroke-dashoffset 0.2s cubic-bezier(0.4, 1, 0.75, 0.9);
+  }
+}
+
+@keyframes spinner-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(1turn);
+  }
+}
