@@ -23,7 +23,7 @@ export default (props: HTMLDivProps): JSX.Element => {
         allowDangerousHtml
         renderers={{
           link: link => (
-            <a target="_blank" href={link.href}>
+            <a target="_blank" rel="noopener" href={link.href}>
               {link.node.children[0]?.value ?? ''}
             </a>
           ),
