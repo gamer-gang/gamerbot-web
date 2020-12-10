@@ -9,13 +9,10 @@ interface IconProps extends HTMLDivProps {
   iconProps?: FeatherAttributes;
 }
 
-export const Icon = (props: IconProps): JSX.Element => {
-  const { className, iconProps, ...otherProps } = props;
-  return (
-    <div
-      className={classNames('feather-icon', className)}
-      dangerouslySetInnerHTML={{ __html: icons[props.icon].toSvg({ ...iconProps }) }}
-      {...otherProps}
-    ></div>
-  );
-};
+export const Icon = ({ className, iconProps, icon, ...other }: IconProps): JSX.Element => (
+  <div
+    className={classNames('feather-icon', className)}
+    dangerouslySetInnerHTML={{ __html: icons[icon].toSvg({ ...iconProps }) }}
+    {...other}
+  ></div>
+);

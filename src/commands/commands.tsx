@@ -3,20 +3,17 @@ import classNames from 'classnames';
 import React, { useEffect, useState } from 'react';
 
 import { Icon } from '../components/Icon';
+import { UnsafeMarkdown } from '../components/Markdown';
 import { HTMLDivProps } from '../types';
 import { initScrolling } from './scroll';
 import { CommandSidebar } from './sidebar';
 
 import './commands.scss';
 
-const { default: ReactMarkdown } = await import('react-markdown/with-html');
-const { default: gfm } = await import('remark-gfm');
-
-const format = (content: string) => {
-  return content
+const format = (content: string) =>
+  content
     .replace(/<\(/g, '<span class="block mt-2 mb-1 text-sm font-bold tracking-wide text-gray-600">')
     .replace(/\)>/g, '</span>');
-};
 
 const parse = (doc: string, tagStart: string, tagEnd: string, pre = false) =>
   doc
@@ -51,9 +48,7 @@ const data = Object.keys(sections)
     {} as Record<string, Record<string, string>>
   );
 
-export default (props: HTMLDivProps): JSX.Element => {
-  const { className, ...other } = props;
-
+export default ({ className, ...other }: HTMLDivProps): JSX.Element => {
   useEffect(initScrolling, []);
 
   return (
@@ -79,19 +74,7 @@ export default (props: HTMLDivProps): JSX.Element => {
               {section}
             </span>
             {data[section]._pre && (
-              <ReactMarkdown
-                allowDangerousHtml
-                renderers={{
-                  link: link => (
-                    <a target="_blank" rel="noopener" href={link.href}>
-                      {link.node.children[0]?.value ?? ''}
-                    </a>
-                  ),
-                }}
-                className="block mb-4 text-gray-600"
-                plugins={[gfm]}
-                children={data[section]._pre}
-              />
+              <UnsafeMarkdown source={data[section]._pre} className="block mb-4 text-gray-600" />
             )}
             {Object.keys(data[section])
               .filter(k => !k.startsWith('_'))
@@ -109,19 +92,7 @@ export default (props: HTMLDivProps): JSX.Element => {
                   ></section>
                   <div className="mb-8">
                     <span className="block text-lg font-code">${command}</span>
-                    <ReactMarkdown
-                      allowDangerousHtml
-                      renderers={{
-                        link: link => (
-                          <a target="_blank" rel="noopener" href={link.href}>
-                            {link.node.children[0]?.value ?? ''}
-                          </a>
-                        ),
-                      }}
-                      className="block"
-                      plugins={[gfm]}
-                      children={data[section][command]}
-                    />
+                    <UnsafeMarkdown source={data[section][command]} className="block" />
                   </div>
                 </React.Fragment>
               ))}
